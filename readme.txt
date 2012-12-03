@@ -30,4 +30,5 @@ I developed this plugin as I could not find any plugin that simply allows users 
 
 == Changelog ==
 
-1.0    Developed Mail Subscribe List Plugin
+1.0.1		Few fixes in the documentation
+1.0		 Developed Mail Subscribe List Plugin
