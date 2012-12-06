@@ -52,9 +52,8 @@ Here is an example of all the default values in use as php code for your templat
 'submittxt' => 'Submit', 
 'jsthanks' => false,
 'thankyou' => 'Thank you for subscribing to our mailing list'
-);</code>
-
-echo smlsubform($args);
+);
+echo smlsubform($args);</code>
 
 == Installation ==
 
