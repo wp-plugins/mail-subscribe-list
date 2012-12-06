@@ -63,7 +63,7 @@ echo smlsubform($args);</code>
 
 == Screenshots ==
 
-1. http://www.webfwd.co.uk/wp-plugins/mail-subscribe-list.jpg
+1. mail-subscribe-list.jpg
 
 == Frequently Asked Questions == 
 
