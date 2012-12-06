@@ -8,11 +8,11 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin allows users to enter their name and email address on a simple unstyled form to subscribe to a simple mailing list which is available to view and modify in the wordpress admin area. 
+Allows users to enter their name and email address to subscribe to a simple mailing list which is available to modify in the wordpress admin area. 
 
 == Description ==
 
-This plugin allows users to enter their name and email address on a simple unstyled form to subscribe to a simple mailing list which is available to view and modify in the wordpress admin area. 
+This plugin allows users to enter their name and email address on an unstyled form which subscribes then to a simple mailing list which is available to view and modify in the wordpress admin area. 
 
 The subscribe form can be displayed on any wordpress page using the shortcode [smlsubform] or from your wordpress theme by calling the php function &lt;?php echo smlsubform(); ?&gt;.
 
