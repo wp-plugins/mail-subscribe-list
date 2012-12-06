@@ -46,8 +46,6 @@ Below is an explanation of what each option does:-
 
 == Frequently Asked Questions == 
 
-= The plugin does not have a feature that I need, can you add it? =
-
 If the feature that you require is small and I can see a need for it then I may develop it into future versions of this plugin, contact me via the [Webforward website here](http://www.webfwd.co.uk/).
 
 == Changelog ==
