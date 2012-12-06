@@ -36,21 +36,22 @@ Below is an explanation of what each option does:-
 
 Here is an example of all default values in use as a shortcode.
 
-[smlsubform prepend="" showname=true nametxt="Name:" emailtxt="Email:" submittxt="Submit" jsthanks=false thankyou="Thank you for subscribing to our mailing list"]
+**[smlsubform prepend="" showname=true nametxt="Name:" emailtxt="Email:" submittxt="Submit" jsthanks=false thankyou="Thank you for subscribing to our mailing list"]**
 
 = Extra Options - How to Use (PHP Method) =
 
 Here is an example of all the default values in use as php code for your template.
 
 $args = array(
-	'prepend' => '', 
-	'showname' => true,
-	'nametxt' => 'Name:', 
-	'emailtxt' => 'Email:',
-	'submittxt' => 'Submit', 
-	'jsthanks' => false,
-	'thankyou' => 'Thank you for subscribing to our mailing list'
+'prepend' => '', 
+'showname' => true,
+'nametxt' => 'Name:', 
+'emailtxt' => 'Email:',
+'submittxt' => 'Submit', 
+'jsthanks' => false,
+'thankyou' => 'Thank you for subscribing to our mailing list'
 );
+
 echo smlsubform($args);
 
 == Installation ==
