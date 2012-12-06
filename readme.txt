@@ -44,6 +44,12 @@ Below is an explanation of what each option does:-
 
 1. http://www.webfwd.co.uk/wp-plugins/mail-subscribe-list.jpg
 
+== Frequently Asked Questions == 
+
+= The plugin does not have a feature that I need, can you add it? =
+
+If the feature that you require is small and I can see a need for it then I may develop it into future versions of this plugin, contact me via the [Webforward website here](http://www.webfwd.co.uk/).
+
 == Changelog ==
 
 = 1.1 =		
@@ -61,3 +67,7 @@ Below is an explanation of what each option does:-
 = 1.0 =
 
 * Developed Mail Subscribe List Plugin.
+
+== Upgrade Notice == 
+
+The current version of Mail Subscribe List requires WordPress 3.3 or higher. If you use older version of WordPress, you need to upgrade WordPress first.
