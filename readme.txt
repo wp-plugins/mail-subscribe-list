@@ -46,12 +46,18 @@ Below is an explanation of what each option does:-
 
 == Changelog ==
 
-1.1		Created a few extra options to customise the form.
-		Check to see if the email address is already in the database.
-        Customisable thank you for subscribing message.
-        Ability to choose between a paragraph or JavaScript Alert based thank you message.
-        Extended documentation.
-        
-1.0.1	Few fixes in the documentation.
+1.1		
 
-1.0		Developed Mail Subscribe List Plugin.
+Created a few extra options to customise the form.
+Check to see if the email address is already in the database.
+Customisable thank you for subscribing message.
+Ability to choose between a paragraph or JavaScript Alert based thank you message.
+Extended documentation.
+        
+1.0.1	
+
+Few fixes in the documentation.
+
+1.0		
+
+Developed Mail Subscribe List Plugin.
