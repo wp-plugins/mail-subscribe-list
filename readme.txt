@@ -18,7 +18,7 @@ The subscribe form can be displayed on any wordpress page using the shortcode [s
 
 I developed this plugin as I could not find any plugin that simply allows users to submit their name and email address to a simple list viewable in the wordpress admin, all the plugins that I found had lots of extra features such as sending out mass emails and double opt-in which my clients do not need.
 
--- Extra Options --
+= Extra Options =
 
 I have developed some extra options which allow you to customise the way you use Mail Subscribe List, Here is an example of all default values in use as a shortcode.
 
@@ -46,18 +46,18 @@ Below is an explanation of what each option does:-
 
 == Changelog ==
 
-1.1		
+= 1.1 =		
 
-Created a few extra options to customise the form.
-Check to see if the email address is already in the database.
-Customisable thank you for subscribing message.
-Ability to choose between a paragraph or JavaScript Alert based thank you message.
-Extended documentation.
+* Created a few extra options to customise the form.
+* Check to see if the email address is already in the database.
+* Customisable thank you for subscribing message.
+* Ability to choose between a paragraph or JavaScript Alert based thank you message.
+* Extended documentation.
         
-1.0.1	
+= 1.0.1 =	
 
-Few fixes in the documentation.
+* Few fixes in the documentation.
 
-1.0		
+= 1.0 =
 
-Developed Mail Subscribe List Plugin.
+* Developed Mail Subscribe List Plugin.
