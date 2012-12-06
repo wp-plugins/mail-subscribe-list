@@ -86,7 +86,17 @@
                             <div class="inside">
                             	<p>This plugin allows users to enter their name and email address on a simple unstyled form to subscribe to a simple mailing list which is available to view and modify in the wordpress admin area. </p>
                                 <p>The subscribe form can be displayed on any wordpress page using the shortcode <strong>[smlsubfrom]</strong> or from your wordpress theme by calling the php function <strong>&lt;?php echo smlsubfrom(); ?&gt;</strong>.</p>
-                                <p>I developed this plugin as I could not find any plugin that simply allows users to submit their name and email address to a simple list viewable in the wordpress admin, all the plugins that I found had lots of extra features such as sending out mass emails and double opt-in which my clients do not need.</p>  
+                                <p>-- Extra Options --</p>
+                                <p>I have developed some extra options which allow you to customise the way you use Mail Subscribe List, Here is an example of all default values in use as a shortcode.</p>
+                              <p><strong>[smlsubform prepend=&quot;&quot; showname=true nametxt=&quot;Name:&quot; emailtxt=&quot;Email:&quot; submittxt=&quot;Submit&quot;, thankyou=&quot;Thank you for subscribing to our mailing list&quot;]</strong></p>
+                                <p>Below is an explanation of what each option does:-                                </p>
+                                <p><strong>&quot;prepend&quot;</strong>	-&gt;	Adds a paragraph of text just inside the top of the form.<br />
+                                  <strong>&quot;showname&quot;</strong>	-&gt;	Show name label and input field for capturing the users name.<br />
+                                  <strong>&quot;nametxt&quot;</strong>	-&gt;	Text that is displayed to the left of the name input field.<br />
+                                  <strong>&quot;emailtxt&quot;</strong>	-&gt;	Text that is displayed to the left of the email input field.<br />
+                                  <strong>&quot;submittxt&quot;</strong>	-&gt;	Text/value that will be displayed on the form submit button.<br />
+                              <strong>&quot;thankyou&quot;</strong>	-&gt;	Thank you message that will be displayed when soemone subscribes. (Will not show if blank)</p>
+<p>I developed this plugin as I could not find any plugin that simply allows users to submit their name and email address to a simple list viewable in the wordpress admin, all the plugins that I found had lots of extra features such as sending out mass emails and double opt-in which my clients do not need.</p>  
                                 
                                 <p style="border-top: solid 1px #ccc"><img style="margin-top:15px" src="<?php echo plugins_url( 'webfwdlogo.png', __FILE__ ); ?>"></p>
 

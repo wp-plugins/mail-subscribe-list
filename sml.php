@@ -3,7 +3,7 @@
 Plugin Name: Mail Subscribe List
 Plugin URI: http://www.webfwd.co.uk/wp-plugins/mail-subscribe-list.php
 Description: This plugin allows users to enter their name and email address to subscribe to a list which is available to view and export in the wordpress admin.
-Version: 1.0.1
+Version: 1.1
 Author: Richard Leishman t/a Webforward
 Author URI: http://www.webfwd.co.uk/
 License: GPL
@@ -25,7 +25,7 @@ GNU General Public License: http://www.gnu.org/licenses/gpl.html
 */
 
 define(PLUGIN_NAME, "Mail Subscribe List");
-define(PLUGIN_VER, "1.0.1");
+define(PLUGIN_VER, "1.1");
 
 // Plugin Activation
 function sml_install()
@@ -57,11 +57,24 @@ function smlsubform($atts){
         "showname" => true,
 		"nametxt" => 'Name:',
 		"emailtxt" => 'Email:',
-		"submittxt" => 'Submit'
+		"submittxt" => 'Submit',
+		"jsthanks" => false,
+		"thankyou" => 'Thank you for subscribing to our mailing list'
     ), $atts));
 	
 	$return = '<form class="sml_subscribe" method="post"><input name="sml_subscribe" type="hidden" value="1">';
+	
 	if ($prepend) $return .= '<p class="prepend">'.$prepend.'</p>';
+	
+	if ($_POST['sml_subscribe'] && $thankyou) { 
+		if ($jsthanks) {
+			$return .= "<script>window.onload = function() { alert('".$thankyou."'); }</script>";
+		} else {
+			$return .= '<p class="sml_thankyou">'.$thankyou.'</p>'; 
+		}
+	}
+	
+	
 	if ($showname) $return .= '<p class="sml_name"><label for="sml_name">'.$nametxt.'</label><input class="" placeholder="Name…" name="sml_name" type="text" value=""></p>';
 	$return .= '<p class="sml_email"><label for="sml_email">'.$emailtxt.'</label><input class="" name="sml_email" placeholder="Email…" type="text" value=""></p>';
 	$return .= '<p class="sml_submit"><input name="submit" class="btn sml_submitbtn" type="submit" value="'.$submittxt.'"></p>';
@@ -75,8 +88,11 @@ if ($_POST['sml_subscribe']) {
 	$name = $_POST['sml_name'];
 	$email = $_POST['sml_email'];
 	if (is_email($email)) {
-		$wpdb->query("insert into ".$wpdb->prefix."sml (sml_name, sml_email) values ('".$wpdb->escape($name)."', '".$wpdb->escape($email)."')");
 		
+		$exists = mysql_query("SELECT * FROM ".$wpdb->prefix."sml where sml_email like '".$wpdb->escape($email)."' limit 1");
+		if (mysql_num_rows($exists) <1) {
+			$wpdb->query("insert into ".$wpdb->prefix."sml (sml_name, sml_email) values ('".$wpdb->escape($name)."', '".$wpdb->escape($email)."')");
+		}
 	}
 }
 
