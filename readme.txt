@@ -8,7 +8,7 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin allows users to enter their name and email address to subscribe to a list which is available to view and export in the wordpress admin.
+This plugin allows users to enter their name and email address on a simple unstyled form to subscribe to a simple mailing list which is available to view and modify in the wordpress admin area. 
 
 == Description ==
 
