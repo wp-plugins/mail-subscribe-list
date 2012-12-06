@@ -3,7 +3,7 @@
 Plugin Name: Mail Subscribe List
 Plugin URI: http://www.webfwd.co.uk/wp-plugins/mail-subscribe-list.php
 Description: This plugin allows users to enter their name and email address to subscribe to a list which is available to view and export in the wordpress admin.
-Version: 1.1
+Version: 1.1.1
 Author: Richard Leishman t/a Webforward
 Author URI: http://www.webfwd.co.uk/
 License: GPL
@@ -25,7 +25,7 @@ GNU General Public License: http://www.gnu.org/licenses/gpl.html
 */
 
 define(PLUGIN_NAME, "Mail Subscribe List");
-define(PLUGIN_VER, "1.1");
+define(PLUGIN_VER, "1.1.1");
 
 // Plugin Activation
 function sml_install()
@@ -56,7 +56,9 @@ function smlsubform($atts){
 		"prepend" => '',  
         "showname" => true,
 		"nametxt" => 'Name:',
+		'nameholder' => 'Name...',
 		"emailtxt" => 'Email:',
+		'emailholder' => 'Email Address...',
 		"submittxt" => 'Submit',
 		"jsthanks" => false,
 		"thankyou" => 'Thank you for subscribing to our mailing list'
@@ -75,8 +77,8 @@ function smlsubform($atts){
 	}
 	
 	
-	if ($showname) $return .= '<p class="sml_name"><label for="sml_name">'.$nametxt.'</label><input class="" placeholder="Name…" name="sml_name" type="text" value=""></p>';
-	$return .= '<p class="sml_email"><label for="sml_email">'.$emailtxt.'</label><input class="" name="sml_email" placeholder="Email…" type="text" value=""></p>';
+	if ($showname) $return .= '<p class="sml_name"><label for="sml_name">'.$nametxt.'</label><input class="" placeholder="'.$nameholder.'" name="sml_name" type="text" value=""></p>';
+	$return .= '<p class="sml_email"><label for="sml_email">'.$emailtxt.'</label><input class="" name="sml_email" placeholder="'.$emailholder.'" type="text" value=""></p>';
 	$return .= '<p class="sml_submit"><input name="submit" class="btn sml_submitbtn" type="submit" value="'.$submittxt.'"></p>';
 	$return .= '</form>';
  	return $return;

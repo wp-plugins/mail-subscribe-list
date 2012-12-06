@@ -18,11 +18,9 @@ The subscribe form can be displayed on any wordpress page using the shortcode [s
 
 I developed this plugin as I could not find any plugin that simply allows users to submit their name and email address to a simple list viewable in the wordpress admin, all the plugins that I found had lots of extra features such as sending out mass emails and double opt-in which my clients do not need.
 
-= Extra Options =
+= Extra Options  =
 
-I have developed some extra options which allow you to customise the way you use Mail Subscribe List, Here is an example of all default values in use as a shortcode.
-
-[smlsubform prepend="" showname=true nametxt="Name:" emailtxt="Email:" submittxt="Submit", jsthanks=false thankyou="Thank you for subscribing to our mailing list"]
+I have developed some extra options which allow you to customise the way you use Mail Subscribe List.
 
 Below is an explanation of what each option does:-
 
@@ -33,6 +31,27 @@ Below is an explanation of what each option does:-
 * "submittxt"	->	Text/value that will be displayed on the form submit button.
 * "jsthanks"	->	If true, this will display a JavaScript Alert Thank You message instead of a paragraph above the form.
 * "thankyou"	->	Thank you message that will be displayed when soemone subscribes. (Will not show if blank)
+
+= Extra Options - How to Use (Short Code Method) =
+
+Here is an example of all default values in use as a shortcode.
+
+[smlsubform prepend="" showname=true nametxt="Name:" emailtxt="Email:" submittxt="Submit" jsthanks=false thankyou="Thank you for subscribing to our mailing list"]
+
+= Extra Options - How to Use (PHP Method) =
+
+Here is an example of all the default values in use as php code for your template.
+
+$args = array(
+	'prepend' => '', 
+	'showname' => true,
+	'nametxt' => 'Name:', 
+	'emailtxt' => 'Email:',
+	'submittxt' => 'Submit', 
+	'jsthanks' => false,
+	'thankyou' => 'Thank you for subscribing to our mailing list'
+);
+echo smlsubform($args);
 
 == Installation ==
 
@@ -49,6 +68,11 @@ Below is an explanation of what each option does:-
 If the feature that you require is small and I can see a need for it then I may develop it into future versions of this plugin, contact me via the [Webforward website here](http://www.webfwd.co.uk/).
 
 == Changelog ==
+
+= 1.1.1 =
+
+* You can now specify the placeholder text.
+* Extensions to the documentation.
 
 = 1.1 =		
 
