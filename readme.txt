@@ -26,13 +26,13 @@ I have developed some extra options which allow you to customise the way you use
 
 Below is an explanation of what each option does:-
 
-"prepend"	->	Adds a paragraph of text just inside the top of the form.
-"showname"	->	If true, this with show the name label and input field for capturing the users name.
-"nametxt"	->	Text that is displayed to the left of the name input field.
-"emailtxt"	->	Text that is displayed to the left of the email input field.
-"submittxt"	->	Text/value that will be displayed on the form submit button.
-"jsthanks"	->	If true, this will display a JavaScript Alert Thank You message instead of a paragraph above the form.
-"thankyou"	->	Thank you message that will be displayed when soemone subscribes. (Will not show if blank)
+* "prepend"	->	Adds a paragraph of text just inside the top of the form.
+* "showname"	->	If true, this with show the name label and input field for capturing the users name.
+* "nametxt"	->	Text that is displayed to the left of the name input field.
+* "emailtxt"	->	Text that is displayed to the left of the email input field.
+* "submittxt"	->	Text/value that will be displayed on the form submit button.
+* "jsthanks"	->	If true, this will display a JavaScript Alert Thank You message instead of a paragraph above the form.
+* "thankyou"	->	Thank you message that will be displayed when soemone subscribes. (Will not show if blank)
 
 == Installation ==
 
