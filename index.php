@@ -161,8 +161,7 @@
                    	        'prepend' =&gt; '', <br />
                    	        'showname' =&gt; true,<br />
                    	        'nametxt' =&gt; 'Name:', <br />
-                   	        'nameholder' =&gt; 'Name...'.
-                   	        <br />
+                   	        'nameholder' =&gt; 'Name...', <br />
                    	        'emailtxt' =&gt; 'Email:',<br />
                    	        'emailholder' =&gt; 'Email Address...',
                    	        <br />
