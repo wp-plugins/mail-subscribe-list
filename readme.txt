@@ -63,6 +63,8 @@ echo smlsubform($args);</code>
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Place `[smlsubform]` in any of your pages or &lt;?php echo smlsubform(); ?&gt; in your template.
 
+* It takes a lot of time and hard work to develop plugins, if you like my plugin then please find the time to rate it. 
+
 == Screenshots ==
 
 1. screenshot-1.png
