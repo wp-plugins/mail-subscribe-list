@@ -11,17 +11,54 @@
 			<div id="post-body-content">
 				
 			<form method="post" action="?page=<?=$_GET['page'];?>">
-            
+            <input name="sml_remove" value="1" type="hidden" />
             			<?php 
-						
-						if ($_GET['rem']) $_POST['rem'][] = $_GET['rem'];
-						
-						if (is_array($_POST['rem'])) {
-							foreach ($_POST['rem'] as $id) { $wpdb->query("delete from ".$wpdb->prefix."sml where id = '".$id."' limit 1");	 }
-							$message = "Subscribers have been removed successfully.";
+						if ($_SERVER['REQUEST_METHOD']=="POST" and $_POST['sml_remove']) {
+							if ($_GET['rem']) $_POST['rem'][] = $_GET['rem'];
+							$count = 0;
+							if (is_array($_POST['rem'])) {
+								foreach ($_POST['rem'] as $id) { 
+									$wpdb->query("delete from ".$wpdb->prefix."sml where id = '".$id."' limit 1"); 
+									$count++; 
+								}
+								$message = $count." subscribers have been removed successfully.";
+							}
 						}
 						
-						
+						if ($_SERVER['REQUEST_METHOD']=="POST" and $_POST['sml_import']) {
+							$correct = 0;
+							if($_FILES['file']['tmp_name']) {
+								if(!$_FILES['file']['error'])  {
+									$file = file_get_contents ($_FILES['file']['tmp_name']);
+									$lines = preg_split('/\r\n|\r|\n/', $file);
+									if (count($lines)) {
+										$sql = array();
+										foreach ($lines as $data) {
+											$data = explode(',', $data);
+											$num = count($data);
+											$row++;
+											
+											if (is_email(trim($data[0]))) {
+												$c = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."sml where sml_email LIKE '".$wpdb->escape(trim($data[0]))."' limit 1", ARRAY_A);
+												if (!is_array($c)) {											
+													$wpdb->query("INSERT INTO ".$wpdb->prefix."sml (sml_email, sml_name) VALUES ('".$wpdb->escape(trim($data[0]))."', '".$wpdb->escape(trim($data[1]))."')");
+													$correct++;
+												} else { $exists++; }
+											} else { $invalid++; }
+										}
+										
+									} else { $message = 'Oh no! Your CSV file does not apear to be valid, please check the format and upload again.'; }
+								
+									if (!$message) {
+										$message = $correct.' records have been imported. '.($invalid?$invalid.' could not be imported due to invalid email addresses. ':'').($exists?$exists.' already exists. ':'');
+									}
+								
+								} else {
+									$message = 'Ooops! There seems to of been a problem uploading your csv';
+								}
+							}								
+						}
+						//echo $sql;
 						if ($message) { echo '<div style="padding: 5px;" class="updated"><p>'.$message.'</p></div>'; }
 						
             			?>
@@ -51,12 +88,8 @@
 									foreach($results as $row) {
 	
 										echo '<tr>
-													<th class="check-column"><input type="checkbox" name="rem[]" value="'.$row->id.'"></th>
-													<td>'.$row->sml_name.'<br>
-													<div class="row-actions">
-														<span class="delete"><a onclick="if ( confirm(\You are about to delete this subscriber \'Documentation\'\n  \'Cancel\' to stop, \'OK\' to delete.\' ) ) { return true;}return false;" 
-														href="?page='.$_GET['page'].'&rem='.$row->id.'" class="submitdelete">Delete</a></span>
-													</div></td>
+													<th class="check-column" style="padding:5px 0 2px 0"><input type="checkbox" name="rem[]" value="'.$row->id.'"></th>
+													<td>'.$row->sml_name.'</td>
 													<td>'.$row->sml_email.'</td>
 											  </tr>';
 											  
@@ -75,6 +108,74 @@
 						<input class="button" name="submit" type="submit" value="Remove Selected" /> <a class="button" href="<?php echo plugins_url( 'export-csv.php', __FILE__ ); ?>">Export as CSV</a>
 				</form>
 				<br class="clear">
+                
+                
+                <div class="meta-box-sortables">
+                        <div class="postbox">
+                        	
+                       	  <h3><span>Import your own CSV File</span></h3>
+                          <div class="inside">
+                
+                <p>This feature allows you to import your own csv (comma seperated values) file into &quot;Mail Subscribe List&quot;.</p>
+
+                <form id="import-csv" method="post" enctype="multipart/form-data" action="?page=<?=$_GET['page'];?>">
+                <input name="sml_import" value="1" type="hidden" />
+                <p><label><input name="file" type="file" value="" /> CSV File</label></p>
+                <p class="description">File must contain no header row, each record on its own line and only two comma seperated collumns in the order of email address followed by name. The name field is optional.</p>
+                <p>Example: joe@blogs.com,Joe Blogs</p>
+                
+                
+                
+                <p class="submit"><input type="submit" value="Upload and Import CSV File" class="button-secondary" id="submit" name="submit"></p></form>
+                </div></div></div>
+                
+                <br class="clear">
+                
+                <div class="meta-box-sortables">
+                        <div class="postbox">
+                        	
+                       	  <h3><span><?php echo PLUGIN_NAME; ?> v<?php echo PLUGIN_VER; ?> - How to Use</span></h3>
+                          <div class="inside">
+                            	<p>This plugin allows users to enter their name and email address on an unstyled form which subscribes then to a simple mailing list which is available to view and modify in the WordPress admin area. </p>
+                            	<p>The subscribe form can be displayed on any WordPress page using the shortcode <strong>[smlsubform]</strong> or from your WordPress theme by calling the php function <strong>&lt;?php echo smlsubform(); ?&gt;</strong>.</p>
+                       	    <p><strong>Extra Options</strong></p>
+                       	    <p>I have developed some extra options which allow you to customise the way you use Mail Subscribe List.</p>
+                       	    <p>Below is an explanation of what each option does:-</p>
+                            <ul>
+                              <li><strong>&quot;prepend&quot;	</strong>-&gt;	Adds a paragraph of text just inside the top of the form.</li>
+                              <li> <strong>&quot;showname&quot;	</strong>-&gt;	If true, this with show the name label and input field for capturing the users name.</li>
+                              <li> <strong>&quot;nametxt&quot;	</strong>-&gt;	Text that is displayed to the left of the name input field.</li>
+                              <li> <strong>&quot;nameholder&quot;	</strong>-&gt;	Text that is displayed inside the name input box as a place holder.</li>
+                              <li> <strong>&quot;emailtxt&quot;	</strong>-&gt;	Text that is displayed to the left of the email input field.</li>
+                              <li> <strong>&quot;emailholder&quot;	</strong>-&gt;	Text that is displayed inside the email input box as a place holder.</li>
+                              <li> <strong>&quot;submittxt&quot;</strong>	-&gt;	Text/value that will be displayed on the form submit button.</li>
+                              <li> <strong>&quot;jsthanks&quot;</strong>	-&gt;	If true, this will display a JavaScript Alert Thank You message instead of a paragraph above the form.</li>
+                              <li> <strong>&quot;thankyou&quot;	</strong>-&gt;	Thank you message that will be displayed when someone subscribes. (Will not show if blank)</li>
+                            </ul>
+<p><strong>Extra Options - How to Use (Short Code Method)</strong></p>
+                       	    <p>Here is an example of all default values in use as a shortcode.</p>
+                       	    <p><strong>[smlsubform prepend=&quot;&quot; showname=true nametxt=&quot;Name:&quot; nameholder=&quot;Name...&quot; emailtxt=&quot;Email:&quot; emailholder=&quot;Email Address...&quot; submittxt=&quot;Submit&quot; jsthanks=false thankyou=&quot;Thank you for subscribing to our mailing list&quot;]</strong></p>
+                       	    <p><strong>Extra Options - How to Use (PHP Method)</strong></p>
+                       	    <p>Here is an example of all the default values in use as php code for your template.</p>
+                       	    <p><strong>$args = array(<br />
+                   	        'prepend' =&gt; '', <br />
+                   	        'showname' =&gt; true,<br />
+                   	        'nametxt' =&gt; 'Name:', <br />
+                   	        'nameholder' =&gt; 'Name...'.
+                   	        <br />
+                   	        'emailtxt' =&gt; 'Email:',<br />
+                   	        'emailholder' =&gt; 'Email Address...',
+                   	        <br />
+                   	        'submittxt' =&gt; 'Submit', <br />
+                   	        'jsthanks' =&gt; false,<br />
+                   	        'thankyou' =&gt; 'Thank you for subscribing to our mailing list'<br />
+                   	        );<br />
+                   	        echo smlsubform($args);</strong></p>
+<p>I developed this plugin as I could not find any plugin that simply allows users to submit their name and email address to a simple list viewable in the wordpress admin, all the plugins that I found had lots of extra features such as sending out mass emails and double opt-in which my clients do not need.</p>
+                          </div>
+                      </div> 
+                    </div>
+                
 			</div> 
 			
 			
@@ -82,23 +183,10 @@
                     <div class="meta-box-sortables">
                         <div class="postbox">
                         	
-                       	  <h3><span><?php echo PLUGIN_NAME; ?> v<?php echo PLUGIN_VER; ?></span></h3>
+                       	  <h3><span>Webforward</span></h3>
                             <div class="inside">
-                            	<p>This plugin allows users to enter their name and email address on a simple unstyled form to subscribe to a simple mailing list which is available to view and modify in the wordpress admin area. </p>
-                                <p>The subscribe form can be displayed on any wordpress page using the shortcode <strong>[smlsubfrom]</strong> or from your wordpress theme by calling the php function <strong>&lt;?php echo smlsubfrom(); ?&gt;</strong>.</p>
-                                <p>-- Extra Options --</p>
-                                <p>I have developed some extra options which allow you to customise the way you use Mail Subscribe List, Here is an example of all default values in use as a shortcode.</p>
-                              <p><strong>[smlsubform prepend=&quot;&quot; showname=true nametxt=&quot;Name:&quot; emailtxt=&quot;Email:&quot; submittxt=&quot;Submit&quot;, thankyou=&quot;Thank you for subscribing to our mailing list&quot;]</strong></p>
-                                <p>Below is an explanation of what each option does:-                                </p>
-                                <p><strong>&quot;prepend&quot;</strong>	-&gt;	Adds a paragraph of text just inside the top of the form.<br />
-                                  <strong>&quot;showname&quot;</strong>	-&gt;	Show name label and input field for capturing the users name.<br />
-                                  <strong>&quot;nametxt&quot;</strong>	-&gt;	Text that is displayed to the left of the name input field.<br />
-                                  <strong>&quot;emailtxt&quot;</strong>	-&gt;	Text that is displayed to the left of the email input field.<br />
-                                  <strong>&quot;submittxt&quot;</strong>	-&gt;	Text/value that will be displayed on the form submit button.<br />
-                              <strong>&quot;thankyou&quot;</strong>	-&gt;	Thank you message that will be displayed when soemone subscribes. (Will not show if blank)</p>
-<p>I developed this plugin as I could not find any plugin that simply allows users to submit their name and email address to a simple list viewable in the wordpress admin, all the plugins that I found had lots of extra features such as sending out mass emails and double opt-in which my clients do not need.</p>  
-                                
-                                <p style="border-top: solid 1px #ccc"><img style="margin-top:15px" src="<?php echo plugins_url( 'webfwdlogo.png', __FILE__ ); ?>"></p>
+                            	
+                                <p><img style="margin-top:15px" src="<?php echo plugins_url( 'webfwdlogo.png', __FILE__ ); ?>"></p>
 
                                 
                                 

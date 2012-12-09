@@ -5,7 +5,7 @@ if (current_user_can('manage_options')) {
 	header('Content-Disposition: inline; filename="subscribers'.date('YmdHis').'.csv"');  
 	$results = $wpdb->get_results( "SELECT * FROM ".$wpdb->prefix."sml");
 	if (count($results))  {
-		foreach($results as $row) echo $row->sml_name.','.$row->sml_email."\r\n";
+		foreach($results as $row) echo $row->sml_email.','.$row->sml_name."\r\n";
 	}
 }
 ?>

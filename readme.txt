@@ -38,7 +38,7 @@ Below is an explanation of what each option does:-
 
 Here is an example of all default values in use as a shortcode.
 
-<code>[smlsubform prepend="" showname=true nametxt="Name:" emailtxt="Email:" submittxt="Submit" jsthanks=false thankyou="Thank you for subscribing to our mailing list"]</code>
+<code>[smlsubform prepend="" showname=true nametxt="Name:" nameholder="Name..." emailtxt="Email:" emailholder="Email Address..." submittxt="Submit" jsthanks=false thankyou="Thank you for subscribing to our mailing list"]</code>
 
 = Extra Options - How to Use (PHP Method) =
 
@@ -48,7 +48,9 @@ Here is an example of all the default values in use as php code for your templat
 'prepend' => '', 
 'showname' => true,
 'nametxt' => 'Name:', 
+'nameholder' => 'Name...'. 
 'emailtxt' => 'Email:',
+'emailholder' => 'Email Address...', 
 'submittxt' => 'Submit', 
 'jsthanks' => false,
 'thankyou' => 'Thank you for subscribing to our mailing list'
@@ -63,13 +65,20 @@ echo smlsubform($args);</code>
 
 == Screenshots ==
 
-1. mail-subscribe-list.jpg
+1. screenshot-1.png
 
 == Frequently Asked Questions == 
 
 If the feature that you require is small and I can see a need for it then I may develop it into future versions of this plugin, contact me via the [Webforward website here](http://www.webfwd.co.uk/).
 
 == Changelog ==
+
+= 1.1.2 =
+
+* Fix bug when no array is passed to smlsubform().
+* Ability to import CSV file to the list.
+* Changed the order of the CSV output.
+* Few cosmetic changes.
 
 = 1.1.1 =
 

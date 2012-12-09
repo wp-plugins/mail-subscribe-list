@@ -3,7 +3,7 @@
 Plugin Name: Mail Subscribe List
 Plugin URI: http://www.webfwd.co.uk/wp-plugins/mail-subscribe-list.php
 Description: This plugin allows users to enter their name and email address to subscribe to a list which is available to view and export in the wordpress admin.
-Version: 1.1.1
+Version: 1.1.2
 Author: Richard Leishman t/a Webforward
 Author URI: http://www.webfwd.co.uk/
 License: GPL
@@ -25,7 +25,7 @@ GNU General Public License: http://www.gnu.org/licenses/gpl.html
 */
 
 define(PLUGIN_NAME, "Mail Subscribe List");
-define(PLUGIN_VER, "1.1.1");
+define(PLUGIN_VER, "1.1.2");
 
 // Plugin Activation
 function sml_install()
@@ -51,7 +51,7 @@ add_action('admin_menu', 'register_sml_menu');
 // Generate Subscribe Form 
 
 
-function smlsubform($atts){
+function smlsubform($atts=array()){
 	extract(shortcode_atts(array(
 		"prepend" => '',  
         "showname" => true,
