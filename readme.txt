@@ -48,7 +48,7 @@ Here is an example of all the default values in use as php code for your templat
 'prepend' => '', 
 'showname' => true,
 'nametxt' => 'Name:', 
-'nameholder' => 'Name...'. 
+'nameholder' => 'Name...', 
 'emailtxt' => 'Email:',
 'emailholder' => 'Email Address...', 
 'submittxt' => 'Submit', 
