@@ -3,7 +3,7 @@ Contributors: webfwd
 Donate link: 
 Tags: mail, email, newsletter, subscribe, list, mailinglist, mail list, mailing list, campaignmonitor, mailchimp
 Requires at least: 3.0
-Tested up to: 3.4
+Tested up to: 3.5.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -38,6 +38,7 @@ Below is an explanation of what each option does:-
 * "nameholder"	->	Text that is displayed inside the name input box as a place holder.
 * "emailtxt"	->	Text that is displayed to the left of the email input field.
 * "emailholder"	->	Text that is displayed inside the email input box as a place holder.
+* "showsubmit" 	-> 	If true, this with show the submit button, return required to submit form.
 * "submittxt"	->	Text/value that will be displayed on the form submit button.
 * "jsthanks"	->	If true, this will display a JavaScript Alert Thank You message instead of a paragraph above the form.
 * "thankyou"	->	Thank you message that will be displayed when someone subscribes. (Will not show if blank)
@@ -46,7 +47,7 @@ Below is an explanation of what each option does:-
 
 Short codes can be used simply putting the code into your wordpress page, here is an example of the shortcode in use.
 
-<code>[smlsubform prepend="" showname=true nametxt="Name:" nameholder="Name..." emailtxt="Email:" emailholder="Email Address..." submittxt="Submit" jsthanks=false thankyou="Thank you for subscribing to our mailing list"]</code>
+<code>[smlsubform prepend="" showname=true nametxt="Name:" nameholder="Name..." emailtxt="Email:" emailholder="Email Address..." showsubmit=true submittxt="Submit" jsthanks=false thankyou="Thank you for subscribing to our mailing list"]</code>
 
 = Extra Options - How to Use (PHP Method) =
 
@@ -59,6 +60,7 @@ The PHP method can be used by putting the following PHP code into your WordPress
 'nameholder' => 'Name...', 
 'emailtxt' => 'Email:',
 'emailholder' => 'Email Address...', 
+'showsubmit' => true, 
 'submittxt' => 'Submit', 
 'jsthanks' => false,
 'thankyou' => 'Thank you for subscribing to our mailing list'
@@ -84,6 +86,11 @@ echo smlsubform($args);</code>
 If the feature that you require is small and I can see a need for it then I may develop it into future versions of this plugin, contact me via the [Webforward website here](http://www.webfwd.co.uk/).
 
 == Changelog ==
+
+= 2.0.1 =
+
+* Fix filter/shortcode big
+* Show/Hide Submit Button
 
 = 2.0 =
 

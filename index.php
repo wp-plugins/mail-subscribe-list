@@ -151,13 +151,14 @@
                               <li> <strong>&quot;nameholder&quot;	</strong>-&gt;	Text that is displayed inside the name input box as a place holder.</li>
                               <li> <strong>&quot;emailtxt&quot;	</strong>-&gt;	Text that is displayed to the left of the email input field.</li>
                               <li> <strong>&quot;emailholder&quot;	</strong>-&gt;	Text that is displayed inside the email input box as a place holder.</li>
+                              <li> <strong>&quot;showsubmit&quot;</strong> -&gt; If true, this with show the submit button, return required to submit form.</li>
                               <li> <strong>&quot;submittxt&quot;</strong>	-&gt;	Text/value that will be displayed on the form submit button.</li>
                               <li> <strong>&quot;jsthanks&quot;</strong>	-&gt;	If true, this will display a JavaScript Alert Thank You message instead of a paragraph above the form.</li>
                               <li> <strong>&quot;thankyou&quot;	</strong>-&gt;	Thank you message that will be displayed when someone subscribes. (Will not show if blank)</li>
                             </ul>
 <p><strong>Extra Options - How to Use (Short Code Method)</strong></p>
                        	    <p>Short codes can be used simply putting the code into your wordpress page, here is an example of the shortcode in use.</p>
-                       	    <p><strong>[smlsubform prepend=&quot;&quot; showname=true nametxt=&quot;Name:&quot; nameholder=&quot;Name...&quot; emailtxt=&quot;Email:&quot; emailholder=&quot;Email Address...&quot; submittxt=&quot;Submit&quot; jsthanks=false thankyou=&quot;Thank you for subscribing to our mailing list&quot;]</strong></p>
+                       	    <p><strong>[smlsubform prepend=&quot;&quot; showname=true nametxt=&quot;Name:&quot; nameholder=&quot;Name...&quot; emailtxt=&quot;Email:&quot; emailholder=&quot;Email Address...&quot; showsubmit=true submittxt=&quot;Submit&quot; jsthanks=false thankyou=&quot;Thank you for subscribing to our mailing list&quot;]</strong></p>
                        	    <p><strong>Extra Options - How to Use (PHP Method)</strong></p>
                        	    <p>The PHP method can be used by putting the following PHP code into your WordPress theme, here is an example of php code for your template.</p>
                        	    <p><strong>$args = array(<br />
@@ -168,6 +169,7 @@
                    	        'emailtxt' =&gt; 'Email:',<br />
                    	        'emailholder' =&gt; 'Email Address...',
                    	        <br />
+                   	        'showsubmit' =&gt; true,                   	        <br />
                    	        'submittxt' =&gt; 'Submit', <br />
                    	        'jsthanks' =&gt; false,<br />
                    	        'thankyou' =&gt; 'Thank you for subscribing to our mailing list'<br />

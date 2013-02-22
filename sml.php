@@ -3,7 +3,7 @@
 Plugin Name: Mail Subscribe List
 Plugin URI: http://www.webfwd.co.uk/packages/wordpress-hosting/
 Description: Simple customisable plugin that displays a name/email form where visitors can submit their information, managable in the WordPress admin.
-Version: 2.0
+Version: 2.0.1
 Author: Richard Leishman t/a Webforward
 Author URI: http://www.webfwd.co.uk/
 License: GPL
@@ -25,7 +25,7 @@ GNU General Public License: http://www.gnu.org/licenses/gpl.html
 */
 
 define(PLUGIN_NAME, "Mail Subscribe List");
-define(PLUGIN_VER, "2.0");
+define(PLUGIN_VER, "2.0.1");
 
 // Plugin Activation
 function sml_install()
@@ -55,9 +55,10 @@ function smlsubform($atts=array()){
 		"prepend" => '',  
         "showname" => true,
 		"nametxt" => 'Name:',
-		'nameholder' => 'Name...',
+		"nameholder" => 'Name...',
 		"emailtxt" => 'Email:',
-		'emailholder' => 'Email Address...',
+		"emailholder" => 'Email Address...',
+		"showsubmit" => true,
 		"submittxt" => 'Submit',
 		"jsthanks" => false,
 		"thankyou" => 'Thank you for subscribing to our mailing list'
@@ -78,14 +79,14 @@ function smlsubform($atts=array()){
 	
 	if ($showname) $return .= '<p class="sml_name"><label class="sml_namelabel" for="sml_name">'.$nametxt.'</label><input class="sml_nameinput" placeholder="'.$nameholder.'" name="sml_name" type="text" value=""></p>';
 	$return .= '<p class="sml_email"><label class="sml_emaillabel" for="sml_email">'.$emailtxt.'</label><input class="sml_emailinput" name="sml_email" placeholder="'.$emailholder.'" type="text" value=""></p>';
-	$return .= '<p class="sml_submit"><input name="submit" class="btn sml_submitbtn" type="submit" value="'.($submittxt?$submittxt:'Submit').'"></p>';
+	if ($showsubmit) $return .= '<p class="sml_submit"><input name="submit" class="btn sml_submitbtn" type="submit" value="'.($submittxt?$submittxt:'Submit').'"></p>';
 	$return .= '</form>';
  	return $return;
 }
 add_shortcode( 'smlsubform', 'smlsubform' );
 
 // Ability to use the shortcode within the text widget, - Suggested by Joel Dare, Thank you.
-add_filter('widget_text', 'smlsubform', 11);
+add_filter('widget_text', 'do_shortcode', 11);
 
 //////
 
@@ -105,6 +106,7 @@ function sml_subscribe_widget_control($args=array(), $params=array()) {
 		update_option('sml_subscribe_widget_nameholder', $_POST['sml_subscribe_widget_nameholder']);
 		update_option('sml_subscribe_widget_emailtxt', $_POST['sml_subscribe_widget_emailtxt']);
 		update_option('sml_subscribe_widget_emailholder', $_POST['sml_subscribe_widget_emailholder']);
+		update_option('sml_subscribe_widget_showsubmit', $_POST['sml_subscribe_widget_showsubmit']);
 		update_option('sml_subscribe_widget_submittxt', $_POST['sml_subscribe_widget_submittxt']);
 	}
 	
@@ -117,6 +119,7 @@ function sml_subscribe_widget_control($args=array(), $params=array()) {
 	$sml_subscribe_widget_nameholder = get_option('sml_subscribe_widget_nameholder');
 	$sml_subscribe_widget_emailtxt = get_option('sml_subscribe_widget_emailtxt');
 	$sml_subscribe_widget_emailholder = get_option('sml_subscribe_widget_emailholder');
+	$sml_subscribe_widget_showsubmit = get_option('sml_subscribe_widget_showsubmit');
 	$sml_subscribe_widget_submittxt = get_option('sml_subscribe_widget_submittxt');
 	?>
 
@@ -162,19 +165,32 @@ function sml_subscribe_widget_control($args=array(), $params=array()) {
 	<input type="text" class="widefat sml_subscribe_widget_emailholder" name="sml_subscribe_widget_emailholder" value="<?php echo stripslashes($sml_subscribe_widget_emailholder); ?>" />
 	<br /><br />
     
+    Show Submit Button <input class="sml_subscribe_widget_showsubmit" name="sml_subscribe_widget_showsubmit" type="checkbox"<?php echo $sml_subscribe_widget_showsubmit?'checked="checked"':''; ?> />
+	<br /><br />
+    
+    <div class="sml_subscribe_submitoptions" style="display:none">
+    
     Submit Button Text
 	<input type="text" class="widefat sml_subscribe_widget_submittxt" name="sml_subscribe_widget_submittxt" value="<?php echo stripslashes($sml_subscribe_widget_submittxt); ?>" />
 	<br /><br />
+    
+    </div>
 
 	<input type="hidden" name="sml_subscribe_submitted" value="1" />
     <script>
-    	function sml_subscribe_nameoptions_check() {
+		function sml_subscribe_nameoptions_check() {
 			if (jQuery('.sml_subscribe_widget_showname').is(':checked')) jQuery(".sml_subscribe_nameoptions").fadeIn();
 			else jQuery(".sml_subscribe_nameoptions").fadeOut();
 		}
+		function sml_subscribe_submitoptions_check() {
+			if (jQuery('.sml_subscribe_widget_showsubmit').is(':checked')) jQuery(".sml_subscribe_submitoptions").fadeIn();
+			else jQuery(".sml_subscribe_submitoptions").fadeOut();
+		}
 		jQuery(document).ready(function(){
 			sml_subscribe_nameoptions_check();
+			sml_subscribe_submitoptions_check();
 			jQuery(".sml_subscribe_widget_showname").click(function(){ sml_subscribe_nameoptions_check(); });
+			jQuery(".sml_subscribe_widget_showsubmit").click(function(){ sml_subscribe_submitoptions_check(); });
 		});
     </script>
 	<?php
@@ -199,6 +215,7 @@ function sml_subscribe_widget_display($args=array(), $params=array()) {
 	$sml_subscribe_widget_nameholder = get_option('sml_subscribe_widget_nameholder');
 	$sml_subscribe_widget_emailtxt = get_option('sml_subscribe_widget_emailtxt');
 	$sml_subscribe_widget_emailholder = get_option('sml_subscribe_widget_emailholder');
+	$sml_subscribe_widget_showsubmit = get_option('sml_subscribe_widget_showsubmit');
 	$sml_subscribe_widget_submittxt = get_option('sml_subscribe_widget_submittxt');
 
 	//widget output
@@ -217,6 +234,7 @@ function sml_subscribe_widget_display($args=array(), $params=array()) {
 		'nameholder' => $sml_subscribe_widget_nameholder, 
 		'emailtxt' => $sml_subscribe_widget_emailtxt,
 		'emailholder' => $sml_subscribe_widget_emailholder, 
+		'showsubmit' => $sml_subscribe_widget_showsubmit,
 		'submittxt' => $sml_subscribe_widget_submittxt, 
 		'jsthanks' => $sml_subscribe_widget_jsthanks,
 		'thankyou' => $sml_subscribe_widget_thankyou
