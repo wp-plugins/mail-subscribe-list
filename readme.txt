@@ -8,7 +8,7 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Simple yet customisable Plugin that displays a name/email form where visitors can submit their information. Collected information is managable in the WordPress admin.
+Simple yet customisable plugin that displays a name/email form where visitors can submit their information. Collected information is managable in the WordPress admin.
 
 == Description ==
 

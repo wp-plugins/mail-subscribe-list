@@ -2,7 +2,7 @@
 /*
 Plugin Name: Mail Subscribe List
 Plugin URI: http://www.webfwd.co.uk/packages/wordpress-hosting/
-Description: Simple yet customisable Plugin that displays a name/email form where visitors can submit their information. Collected information is managable in the WordPress admin.
+Description: Simple yet customisable plugin that displays a name/email form where visitors can submit their information. Collected information is managable in the WordPress admin.
 Version: 2.0
 Author: Richard Leishman t/a Webforward
 Author URI: http://www.webfwd.co.uk/
