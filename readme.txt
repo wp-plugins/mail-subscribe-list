@@ -8,25 +8,32 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Allows users to enter their name and email address to subscribe to a simple mailing list which is available to modify in the WordPress admin area. 
+Simple yet customisable Plugin that displays a name/email form where visitors can submit their information. Collected information is managable in the WordPress admin.
 
 == Description ==
 
-This plugin allows users to enter their name and email address on an unstyled form which subscribes then to a simple mailing list which is available to view and modify in the WordPress admin area. 
+This is a simple plugin that allows visitors to enter their name and email address on your website, the visitos details are then added to the subscribers list which is available to view and modify in the WordPress admin area. 
 
-The subscribe form can be displayed on any WordPress page using the shortcode [smlsubform] or from your WordPress theme by calling the php function &lt;?php echo smlsubform(); ?&gt;.
+This plugin can be used not only for Mailing List subscriptions but can be used generally for collecting email address and/or peoples names that are visiting your website.
 
-I developed this plugin as I could not find any plugin that simply allows users to submit their name and email address to a simple list viewable in the WordPress admin, all the plugins that I found had lots of extra features such as sending out mass emails and double opt-in which my clients do not need.
+The name/email form can not only be customised but can also be displayed on any WordPress page by using either the 'Subscribe Widget', WordPress shortcode [smlsubform] or from your WordPress theme by calling the php function.
+
+I developed this plugin as I could not find any plugin that simply allows users to submit their name and email address to a simple list viewable in the WordPress admin, all the plugins that I found had lots of extra features such as 3rd party integration, mass emailing and double opt-in, my clients do not need any of these features.
+
+Like this plugin? Please follow me on Twitter and Facebook
+
+Twitter - https://twitter.com/webfwd
+Facebook - https://www.facebook.com/pages/Webforward/208823852487018
 
 = Extra Options  =
 
-I have developed some extra options which allow you to customise the way you use Mail Subscribe List.
+I have developed some customisable options that allow you to change the way the plugin is displayed.
 
 Below is an explanation of what each option does:-
 
-* "prepend"	->	Adds a paragraph of text just inside the top of the form.
+* "prepend"		->	Adds a paragraph of text just inside the top of the form.
 * "showname"	->	If true, this with show the name label and input field for capturing the users name.
-* "nametxt"	->	Text that is displayed to the left of the name input field.
+* "nametxt"		->	Text that is displayed to the left of the name input field.
 * "nameholder"	->	Text that is displayed inside the name input box as a place holder.
 * "emailtxt"	->	Text that is displayed to the left of the email input field.
 * "emailholder"	->	Text that is displayed inside the email input box as a place holder.
@@ -36,13 +43,13 @@ Below is an explanation of what each option does:-
 
 = Extra Options - How to Use (Short Code Method) =
 
-Here is an example of all default values in use as a shortcode.
+Short codes can be used simply putting the code into your wordpress page, here is an example of the shortcode in use.
 
 <code>[smlsubform prepend="" showname=true nametxt="Name:" nameholder="Name..." emailtxt="Email:" emailholder="Email Address..." submittxt="Submit" jsthanks=false thankyou="Thank you for subscribing to our mailing list"]</code>
 
 = Extra Options - How to Use (PHP Method) =
 
-Here is an example of all the default values in use as php code for your template.
+The PHP method can be used by putting the following PHP code into your WordPress theme, here is an example of php code for your template.
 
 <code>$args = array(
 'prepend' => '', 
@@ -67,13 +74,23 @@ echo smlsubform($args);</code>
 
 == Screenshots ==
 
-1. screenshot-1.png
+1. admin-management.png
+2. subscribe-widget.png
+3. admin-management.png
 
 == Frequently Asked Questions == 
 
 If the feature that you require is small and I can see a need for it then I may develop it into future versions of this plugin, contact me via the [Webforward website here](http://www.webfwd.co.uk/).
 
 == Changelog ==
+
+= 2.0 =
+
+* Celebrating 5000 Downloads!
+* Added some fixes to the code.
+* Added the ability to use the shortcode within the Text Widget, provided by Joel Dare.
+* Full Widget Support with Configurable Options!
+* Added some more screenshots.
 
 = 1.1.2 =
 

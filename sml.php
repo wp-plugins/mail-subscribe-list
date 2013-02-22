@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Mail Subscribe List
-Plugin URI: http://www.webfwd.co.uk/wp-plugins/mail-subscribe-list.php
-Description: This plugin allows users to enter their name and email address to subscribe to a list which is available to view and export in the wordpress admin.
-Version: 1.1.2
+Plugin URI: http://www.webfwd.co.uk/packages/wordpress-hosting/
+Description: Simple yet customisable Plugin that displays a name/email form where visitors can submit their information. Collected information is managable in the WordPress admin.
+Version: 1.2
 Author: Richard Leishman t/a Webforward
 Author URI: http://www.webfwd.co.uk/
 License: GPL
@@ -25,7 +25,7 @@ GNU General Public License: http://www.gnu.org/licenses/gpl.html
 */
 
 define(PLUGIN_NAME, "Mail Subscribe List");
-define(PLUGIN_VER, "1.1.2");
+define(PLUGIN_VER, "1.2");
 
 // Plugin Activation
 function sml_install()
@@ -50,7 +50,6 @@ add_action('admin_menu', 'register_sml_menu');
 
 // Generate Subscribe Form 
 
-
 function smlsubform($atts=array()){
 	extract(shortcode_atts(array(
 		"prepend" => '',  
@@ -64,7 +63,7 @@ function smlsubform($atts=array()){
 		"thankyou" => 'Thank you for subscribing to our mailing list'
     ), $atts));
 	
-	$return = '<form class="sml_subscribe" method="post"><input name="sml_subscribe" type="hidden" value="1">';
+	$return = '<form class="sml_subscribe" method="post"><input class="sml_hiddenfield" name="sml_subscribe" type="hidden" value="1">';
 	
 	if ($prepend) $return .= '<p class="prepend">'.$prepend.'</p>';
 	
@@ -77,13 +76,169 @@ function smlsubform($atts=array()){
 	}
 	
 	
-	if ($showname) $return .= '<p class="sml_name"><label for="sml_name">'.$nametxt.'</label><input class="" placeholder="'.$nameholder.'" name="sml_name" type="text" value=""></p>';
-	$return .= '<p class="sml_email"><label for="sml_email">'.$emailtxt.'</label><input class="" name="sml_email" placeholder="'.$emailholder.'" type="text" value=""></p>';
-	$return .= '<p class="sml_submit"><input name="submit" class="btn sml_submitbtn" type="submit" value="'.$submittxt.'"></p>';
+	if ($showname) $return .= '<p class="sml_name"><label class="sml_namelabel" for="sml_name">'.$nametxt.'</label><input class="sml_nameinput" placeholder="'.$nameholder.'" name="sml_name" type="text" value=""></p>';
+	$return .= '<p class="sml_email"><label class="sml_emaillabel" for="sml_email">'.$emailtxt.'</label><input class="sml_emailinput" name="sml_email" placeholder="'.$emailholder.'" type="text" value=""></p>';
+	$return .= '<p class="sml_submit"><input name="submit" class="btn sml_submitbtn" type="submit" value="'.($submittxt?$submittxt:'Submit').'"></p>';
 	$return .= '</form>';
  	return $return;
 }
 add_shortcode( 'smlsubform', 'smlsubform' );
+
+// Ability to use the shortcode within the text widget, - Suggested by Joel Dare, Thank you.
+add_filter('widget_text', 'smlsubform', 11);
+
+//////
+
+// Lets create a Wordpress Widget
+
+// Widget Controller
+
+function sml_subscribe_widget_control($args=array(), $params=array()) {
+	
+	if (isset($_POST['sml_subscribe_submitted'])) {
+		update_option('sml_subscribe_widget_title', $_POST['sml_subscribe_widget_title']);
+		update_option('sml_subscribe_widget_prepend', $_POST['sml_subscribe_widget_prepend']);
+		update_option('sml_subscribe_widget_jsthanks', $_POST['sml_subscribe_widget_jsthanks']);
+		update_option('sml_subscribe_widget_thankyou', $_POST['sml_subscribe_widget_thankyou']);
+		update_option('sml_subscribe_widget_showname', $_POST['sml_subscribe_widget_showname']);
+		update_option('sml_subscribe_widget_nametxt', $_POST['sml_subscribe_widget_nametxt']);
+		update_option('sml_subscribe_widget_nameholder', $_POST['sml_subscribe_widget_nameholder']);
+		update_option('sml_subscribe_widget_emailtxt', $_POST['sml_subscribe_widget_emailtxt']);
+		update_option('sml_subscribe_widget_emailholder', $_POST['sml_subscribe_widget_emailholder']);
+		update_option('sml_subscribe_widget_submittxt', $_POST['sml_subscribe_widget_submittxt']);
+	}
+	
+	$sml_subscribe_widget_title = get_option('sml_subscribe_widget_title');
+	$sml_subscribe_widget_prepend = get_option('sml_subscribe_widget_prepend');
+	$sml_subscribe_widget_jsthanks = get_option('sml_subscribe_widget_jsthanks');
+	$sml_subscribe_widget_thankyou = get_option('sml_subscribe_widget_thankyou');
+	$sml_subscribe_widget_showname = get_option('sml_subscribe_widget_showname');
+	$sml_subscribe_widget_nametxt = get_option('sml_subscribe_widget_nametxt');
+	$sml_subscribe_widget_nameholder = get_option('sml_subscribe_widget_nameholder');
+	$sml_subscribe_widget_emailtxt = get_option('sml_subscribe_widget_emailtxt');
+	$sml_subscribe_widget_emailholder = get_option('sml_subscribe_widget_emailholder');
+	$sml_subscribe_widget_submittxt = get_option('sml_subscribe_widget_submittxt');
+	?>
+
+	Title:<br />
+	<textarea class="widefat sml_subscribe_widget_title" rows="5" name="sml_subscribe_widget_title"><?php echo stripslashes($sml_subscribe_widget_title); ?></textarea>
+	<br /><br />
+
+	Header Text:<br />
+	<textarea class="widefat sml_subscribe_widget_prepend" rows="5" name="sml_subscribe_widget_prepend"><?php echo stripslashes($sml_subscribe_widget_prepend); ?></textarea>
+	<br /><br />
+    
+    Thank You Type 
+	<select class="sml_subscribe_widget_jsthanks" name="sml_subscribe_widget_jsthanks">
+    	<option <?php echo ($sml_subscribe_widget_jsthanks?'selected="selected"':''); ?> value="1">JavaScript Alert</option>
+        <option <?php echo (!$sml_subscribe_widget_jsthanks?'selected="selected"':''); ?> value="0">Widget Header</option>
+    </select>
+	<br /><br />
+    
+    Thank You Message<br />
+	<textarea class="widefat sml_subscribe_widget_thankyou" rows="5" name="sml_subscribe_widget_thankyou"><?php echo stripslashes($sml_subscribe_widget_thankyou); ?></textarea>
+	<br /><br />
+    
+    Show Name Field <input class="sml_subscribe_widget_showname" name="sml_subscribe_widget_showname" type="checkbox"<?php echo $sml_subscribe_widget_showname?'checked="checked"':''; ?> />
+	<br /><br />
+    
+    <div class="sml_subscribe_nameoptions" style="display:none">
+    
+    Name Label text
+	<input type="text" class="widefat sml_subscribe_widget_nametxt" name="sml_subscribe_widget_nametxt" value="<?php echo stripslashes($sml_subscribe_widget_nametxt); ?>" />
+	<br /><br />
+    
+    Name Placeholder Text
+	<input type="text" class="widefat sml_subscribe_widget_nameholder" name="sml_subscribe_widget_nameholder" value="<?php echo stripslashes($sml_subscribe_widget_nameholder); ?>" />
+	<br /><br />
+    
+    </div>
+    
+    Email Label Text
+	<input type="text" class="widefat sml_subscribe_widget_emailtxt" name="sml_subscribe_widget_emailtxt" value="<?php echo stripslashes($sml_subscribe_widget_emailtxt); ?>" />
+	<br /><br />
+    
+    Email Placeholder Text
+	<input type="text" class="widefat sml_subscribe_widget_emailholder" name="sml_subscribe_widget_emailholder" value="<?php echo stripslashes($sml_subscribe_widget_emailholder); ?>" />
+	<br /><br />
+    
+    Submit Button Text
+	<input type="text" class="widefat sml_subscribe_widget_submittxt" name="sml_subscribe_widget_submittxt" value="<?php echo stripslashes($sml_subscribe_widget_submittxt); ?>" />
+	<br /><br />
+
+	<input type="hidden" name="sml_subscribe_submitted" value="1" />
+    <script>
+    	function sml_subscribe_nameoptions_check() {
+			if (jQuery('.sml_subscribe_widget_showname').is(':checked')) jQuery(".sml_subscribe_nameoptions").fadeIn();
+			else jQuery(".sml_subscribe_nameoptions").fadeOut();
+		}
+		jQuery(document).ready(function(){
+			sml_subscribe_nameoptions_check();
+			jQuery(".sml_subscribe_widget_showname").click(function(){ sml_subscribe_nameoptions_check(); });
+		});
+    </script>
+	<?php
+}
+
+wp_register_widget_control(
+	'sml_subscribe_widget',
+	'sml_subscribe_widget',
+	'sml_subscribe_widget_control'
+);
+
+// Widget Display
+
+function sml_subscribe_widget_display($args=array(), $params=array()) {
+
+	$sml_subscribe_widget_title = get_option('sml_subscribe_widget_title');
+	$sml_subscribe_widget_prepend = get_option('sml_subscribe_widget_prepend');
+	$sml_subscribe_widget_jsthanks = get_option('sml_subscribe_widget_jsthanks');
+	$sml_subscribe_widget_thankyou = get_option('sml_subscribe_widget_thankyou');
+	$sml_subscribe_widget_showname = get_option('sml_subscribe_widget_showname');
+	$sml_subscribe_widget_nametxt = get_option('sml_subscribe_widget_nametxt');
+	$sml_subscribe_widget_nameholder = get_option('sml_subscribe_widget_nameholder');
+	$sml_subscribe_widget_emailtxt = get_option('sml_subscribe_widget_emailtxt');
+	$sml_subscribe_widget_emailholder = get_option('sml_subscribe_widget_emailholder');
+	$sml_subscribe_widget_submittxt = get_option('sml_subscribe_widget_submittxt');
+
+	//widget output
+	echo stripslashes($args['before_widget']);
+
+	echo stripslashes($args['before_title']);
+	echo stripslashes($sml_subscribe_widget_title);
+	echo stripslashes($args['after_title']);
+
+	echo '<div class="textwidget">';
+
+	$args = array(
+		'prepend' => $sml_subscribe_widget_prepend, 
+		'showname' => $sml_subscribe_widget_showname,
+		'nametxt' => $sml_subscribe_widget_nametxt, 
+		'nameholder' => $sml_subscribe_widget_nameholder, 
+		'emailtxt' => $sml_subscribe_widget_emailtxt,
+		'emailholder' => $sml_subscribe_widget_emailholder, 
+		'submittxt' => $sml_subscribe_widget_submittxt, 
+		'jsthanks' => $sml_subscribe_widget_jsthanks,
+		'thankyou' => $sml_subscribe_widget_thankyou
+	);
+	echo smlsubform($args);
+
+	echo '</div>';
+  echo stripslashes($args['after_widget']);
+}
+
+wp_register_sidebar_widget(
+    'sml_subscribe_widget',
+    'Subscribe Form',
+    'sml_subscribe_widget_display',
+    array(
+        'description' => 'Display Subscribe Form'
+    )
+);
+
+
+
+/////////
 
 // Handle form Post
 if ($_POST['sml_subscribe']) {

@@ -136,10 +136,13 @@
                         	
                        	  <h3><span><?php echo PLUGIN_NAME; ?> v<?php echo PLUGIN_VER; ?> - How to Use</span></h3>
                           <div class="inside">
-                            	<p>This plugin allows users to enter their name and email address on an unstyled form which subscribes then to a simple mailing list which is available to view and modify in the WordPress admin area. </p>
-                            	<p>The subscribe form can be displayed on any WordPress page using the shortcode <strong>[smlsubform]</strong> or from your WordPress theme by calling the php function <strong>&lt;?php echo smlsubform(); ?&gt;</strong>.</p>
-                       	    <p><strong>Extra Options</strong></p>
-                       	    <p>I have developed some extra options which allow you to customise the way you use Mail Subscribe List.</p>
+                            	<p>This is a simple plugin that allows visitors to enter their name and email address on your website, the visitos details are then added to the subscribers list which is available to view and modify in the WordPress admin area. </p>
+                            	<p>This plugin can be used not only for Mailing List subscriptions but can be used generally for collecting email address and/or peoples names that are visiting your website.</p>
+                            	<p>The name/email form can not only be customised but can also be displayed on any WordPress page by using either the 'Subscribe Widget', WordPress shortcode [smlsubform] or from your WordPress theme by calling the php function.</p>
+                           	<p>I developed this plugin as I could not find any plugin that simply allows users to submit their name and email address to a simple list viewable in the WordPress admin, all the plugins that I found had lots of extra features such as 3rd party integration, mass emailing and double opt-in, my clients do not need any of these features.</p>
+                            	<p>Like this plugin? Please follow me on Twitter and Facebook</p>
+                           	<p><strong>Extra Options</strong></p>
+                       	    <p>I have developed some customisable options that allow you to change the way the plugin is displayed.</p>
                        	    <p>Below is an explanation of what each option does:-</p>
                             <ul>
                               <li><strong>&quot;prepend&quot;	</strong>-&gt;	Adds a paragraph of text just inside the top of the form.</li>
@@ -153,10 +156,10 @@
                               <li> <strong>&quot;thankyou&quot;	</strong>-&gt;	Thank you message that will be displayed when someone subscribes. (Will not show if blank)</li>
                             </ul>
 <p><strong>Extra Options - How to Use (Short Code Method)</strong></p>
-                       	    <p>Here is an example of all default values in use as a shortcode.</p>
+                       	    <p>Short codes can be used simply putting the code into your wordpress page, here is an example of the shortcode in use.</p>
                        	    <p><strong>[smlsubform prepend=&quot;&quot; showname=true nametxt=&quot;Name:&quot; nameholder=&quot;Name...&quot; emailtxt=&quot;Email:&quot; emailholder=&quot;Email Address...&quot; submittxt=&quot;Submit&quot; jsthanks=false thankyou=&quot;Thank you for subscribing to our mailing list&quot;]</strong></p>
                        	    <p><strong>Extra Options - How to Use (PHP Method)</strong></p>
-                       	    <p>Here is an example of all the default values in use as php code for your template.</p>
+                       	    <p>The PHP method can be used by putting the following PHP code into your WordPress theme, here is an example of php code for your template.</p>
                        	    <p><strong>$args = array(<br />
                    	        'prepend' =&gt; '', <br />
                    	        'showname' =&gt; true,<br />
@@ -169,8 +172,7 @@
                    	        'jsthanks' =&gt; false,<br />
                    	        'thankyou' =&gt; 'Thank you for subscribing to our mailing list'<br />
                    	        );<br />
-                   	        echo smlsubform($args);</strong></p>
-<p>I developed this plugin as I could not find any plugin that simply allows users to submit their name and email address to a simple list viewable in the wordpress admin, all the plugins that I found had lots of extra features such as sending out mass emails and double opt-in which my clients do not need.</p>
+                   	        echo smlsubform($args);</strong>                          </p>
                           </div>
                       </div> 
                     </div>
@@ -185,12 +187,14 @@
                        	  <h3><span>Webforward</span></h3>
                             <div class="inside">
                             	
-                                <p><img style="margin-top:15px" src="<?php echo plugins_url( 'webfwdlogo.png', __FILE__ ); ?>"></p>
+                                <p><a target="_blank" href="http://www.webfwd.co.uk/packages/wordpress-hosting/"><img style="margin-top:15px" src="<?php echo plugins_url( 'webfwdlogo.png', __FILE__ ); ?>"></a></p>
 
                                 
                                 
                                 <p><em>We are an internet based service provider just a few miles north of Birmingham UK, we develop time-saving systems for businesses that are accessible from all devices. We have our own high speed resilient data centre which consist of web, database and streaming servers. We also provide IT support, consultancy and produce documents for businesses.</em></p>
-                                <p><a class="button" href="http://www.webfwd.co.uk/" target="_blank">Visit our Website</a></p>
+                                <p><a class="button" href="http://www.webfwd.co.uk/packages/wordpress-hosting/" target="_blank">Visit our Website</a></p>
+                                
+                                <p>Please follow us on - <a class="button" target="_blank" href="https://twitter.com/webfwd">Twitter</a> <a class="button" target="_blank" href="https://www.facebook.com/pages/Webforward/208823852487018">Facebook</a></p>
                             </div>
                       </div> 
                     </div> 
