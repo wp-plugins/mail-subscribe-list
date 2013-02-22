@@ -75,8 +75,8 @@ echo smlsubform($args);</code>
 == Screenshots ==
 
 1. admin-management.png
-2. subscribe-widget.png
-3. admin-management.png
+1. subscribe-widget.png
+1. admin-management.png
 
 == Frequently Asked Questions == 
 
