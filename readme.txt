@@ -8,7 +8,7 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Simple yet customisable plugin that displays a name/email form where visitors can submit their information. Collected information is managable in the WordPress admin.
+Simple customisable plugin that displays a name/email form where visitors can submit their information, managable in the WordPress admin.
 
 == Description ==
 
@@ -23,6 +23,7 @@ I developed this plugin as I could not find any plugin that simply allows users 
 Like this plugin? Please follow me on Twitter and Facebook
 
 Twitter - https://twitter.com/webfwd
+
 Facebook - https://www.facebook.com/pages/Webforward/208823852487018
 
 = Extra Options  =
@@ -74,9 +75,9 @@ echo smlsubform($args);</code>
 
 == Screenshots ==
 
-1. admin-management.png
-1. subscribe-widget.png
-1. admin-management.png
+1. Admin Management
+2. Example Widget in Use
+3. Subscribe Widget
 
 == Frequently Asked Questions == 
 
