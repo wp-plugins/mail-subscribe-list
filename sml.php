@@ -24,9 +24,6 @@ GNU General Public License: http://www.gnu.org/licenses/gpl.html
 
 */
 
-define(SMLPLUGIN_NAME, "Mail Subscribe List");
-define(SMLPLUGIN_VER, "2.0.2");
-
 // Plugin Activation
 function sml_install() {
     global $wpdb;
