@@ -14,7 +14,7 @@ Simple customisable plugin that displays a name/email form where visitors can su
 
 This is a **simple plugin** that allows visitors to enter their name and email address on your website, the visitos details are then added to the subscribers list which is available to view and modify in the WordPress admin area. 
 
-> This plugin does not send emails, instructions on how to use are at the bottom of this page.
+> This plugin does not send emails, instructions on how to use are at the bottom of this page or on the installation tab.
 
 This plugin can be used not only for Mailing List subscriptions but can be used generally for collecting email address and/or peoples names that are visiting your website.
 
@@ -73,7 +73,7 @@ echo smlsubform($args);</code>
 
 1. Upload `mail-subscribe-list` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `[smlsubform]` in any of your pages or &lt;?php echo smlsubform(); ?&gt; in your template.
+1. Either use the widget in your sidebar or place `[smlsubform]` in any of your pages or &lt;?php echo smlsubform(); ?&gt; in your template.
 
 * It takes a lot of time and hard work to develop plugins, if you like my plugin then please find the time to rate it. 
 
