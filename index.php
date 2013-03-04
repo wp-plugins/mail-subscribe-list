@@ -134,7 +134,7 @@
                 <div class="meta-box-sortables">
                         <div class="postbox">
                         	
-                       	  <h3><span><?php echo PLUGIN_NAME; ?> v<?php echo PLUGIN_VER; ?> - How to Use</span></h3>
+                       	  <h3><span>Mail Subscribe List - How to Use</span></h3>
                           <div class="inside">
                             	<p>This is a simple plugin that allows visitors to enter their name and email address on your website, the visitos details are then added to the subscribers list which is available to view and modify in the WordPress admin area. </p>
                             	<p>This plugin can be used not only for Mailing List subscriptions but can be used generally for collecting email address and/or peoples names that are visiting your website.</p>

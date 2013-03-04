@@ -12,7 +12,9 @@ Simple customisable plugin that displays a name/email form where visitors can su
 
 == Description ==
 
-This is a simple plugin that allows visitors to enter their name and email address on your website, the visitos details are then added to the subscribers list which is available to view and modify in the WordPress admin area. 
+This is a **simple plugin** that allows visitors to enter their name and email address on your website, the visitos details are then added to the subscribers list which is available to view and modify in the WordPress admin area. 
+
+> This plugin does not send emails, instructions on how to use are at the bottom of this page.
 
 This plugin can be used not only for Mailing List subscriptions but can be used generally for collecting email address and/or peoples names that are visiting your website.
 
@@ -20,11 +22,11 @@ The name/email form can not only be customised but can also be displayed on any 
 
 I developed this plugin as I could not find any plugin that simply allows users to submit their name and email address to a simple list viewable in the WordPress admin, all the plugins that I found had lots of extra features such as 3rd party integration, mass emailing and double opt-in, my clients do not need any of these features.
 
-Like this plugin? Please follow me on Twitter and Facebook
+Like this plugin? **Please follow me on Twitter and Facebook**
 
-Twitter - https://twitter.com/webfwd
+**Twitter** - https://twitter.com/webfwd
 
-Facebook - https://www.facebook.com/pages/Webforward/208823852487018
+**Facebook** - https://www.facebook.com/pages/Webforward/208823852487018
 
 = Extra Options  =
 
@@ -83,14 +85,20 @@ echo smlsubform($args);</code>
 
 == Frequently Asked Questions == 
 
-If the feature that you require is small and I can see a need for it then I may develop it into future versions of this plugin, contact me via the [Webforward website here](http://www.webfwd.co.uk/).
+= Can this plugin be used to send emails when I publish a new post or page? =
+
+No, this plugin was designed to collect email addresses from visitors. This plugin does not send emails at all.
 
 == Changelog ==
 
+= 2.0.2 =
+
+* Removed constants due to conflict with other plugins.
+
 = 2.0.1 =
 
-* Fix filter/shortcode big
-* Show/Hide Submit Button
+* Fix filter/shortcode big.
+* Show/Hide Submit Button.
 
 = 2.0 =
 
