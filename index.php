@@ -10,7 +10,7 @@
 			<!-- main content -->
 			<div id="post-body-content">
 				
-			<form method="post" action="?page=<?=$_GET['page'];?>">
+			<form method="post" action="?page=<?php echo $_GET['page']; ?>">
             <input name="sml_remove" value="1" type="hidden" />
             			<?php 
 						if ($_SERVER['REQUEST_METHOD']=="POST" and $_POST['sml_remove']) {

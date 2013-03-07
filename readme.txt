@@ -91,6 +91,10 @@ No, this plugin was designed to collect email addresses from visitors. This plug
 
 == Changelog ==
 
+= 2.0.3 =
+
+* Fixed PHP short tags issue with removing subscribers, my bad.
+
 = 2.0.2 =
 
 * Removed constants due to conflict with other plugins.
