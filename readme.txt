@@ -3,7 +3,7 @@ Contributors: webfwd
 Donate link: 
 Tags: mail, email, newsletter, subscribe, list, mailinglist, mail list, mailing list, campaignmonitor, mailchimp
 Requires at least: 3.0
-Tested up to: 3.5.1
+Tested up to: 3.5.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -90,6 +90,10 @@ echo smlsubform($args);</code>
 No, this plugin was designed to collect email addresses from visitors. This plugin does not send emails at all.
 
 == Changelog ==
+
+= 2.0.4 =
+
+* Export format changed, can now export to Google Contacts.
 
 = 2.0.3 =
 
