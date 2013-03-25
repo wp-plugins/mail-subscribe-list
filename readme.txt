@@ -1,7 +1,7 @@
 === Mail Subscribe List ===
 Contributors: webfwd
 Donate link: 
-Tags: mail, email, newsletter, subscribe, list, mailinglist, mail list, mailing list, campaignmonitor, mailchimp, constant contact, subscriber, subscribers, email marketing, marketing
+Tags: mail, email, newsletter, subscribe, list, mailinglist, mail list, mailing list, campaignmonitor, mailchimp, constant contact, subscriber, subscribers, email marketing, marketing, widget, post, plugin, admin, posts, sidebar, page, pages
 Requires at least: 3.0
 Tested up to: 3.5.2
 Stable tag: trunk
@@ -13,8 +13,6 @@ Simple customisable plugin that displays a name/email form where visitors can su
 == Description ==
 
 This is a **simple plugin** that allows visitors to enter their name and email address on your website, the visitos details are then added to the subscribers list which is available to view and modify in the WordPress admin area. 
-
-> This plugin does not send emails, instructions on how to use are at the bottom of this page or on the installation tab.
 
 This plugin can be used not only for Mailing List subscriptions but can be used generally for collecting email address and/or peoples names that are visiting your website.
 
