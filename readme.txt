@@ -1,7 +1,7 @@
 === Mail Subscribe List ===
 Contributors: webfwd
 Donate link: 
-Tags: mail, email, newsletter, subscribe, list, mailinglist, mail list, mailing list, campaignmonitor, mailchimp
+Tags: mail, email, newsletter, subscribe, list, mailinglist, mail list, mailing list, campaignmonitor, mailchimp, constant contact, subscriber, subscribers, email marketing, marketing
 Requires at least: 3.0
 Tested up to: 3.5.2
 Stable tag: trunk
