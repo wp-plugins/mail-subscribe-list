@@ -89,6 +89,10 @@ No, this plugin was designed to collect email addresses from visitors. This plug
 
 == Changelog ==
 
+= 2.0.5 =
+
+* Fix possibility of conflicting with other plugins and not showing the menu item in the admin.
+
 = 2.0.4 =
 
 * Export format changed, can now export to Google Contacts.
