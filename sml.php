@@ -3,7 +3,7 @@
 Plugin Name: Mail Subscribe List
 Plugin URI: http://www.webfwd.co.uk/packages/wordpress-hosting/
 Description: Simple customisable plugin that displays a name/email form where visitors can submit their information, managable in the WordPress admin.
-Version: 2.0.5
+Version: 2.0.6
 Author: Richard Leishman t/a Webforward
 Author URI: http://www.webfwd.co.uk/
 License: GPL
@@ -35,9 +35,7 @@ function sml_install() {
 	UNIQUE KEY id (id)
     );";
     $wpdb->query($structure);
-	global $current_user;
-	get_currentuserinfo();
-	getdata(base64_decode('aHR0cDovL3d3dy53ZWJmd2QuY28udWsvX290aGVyL3BsdWdpbmFjdGl2YXRlLnBocA==').'?sn='.urlencode(get_bloginfo('name')).'&su='.urlencode(get_site_url()).'&c='.urlencode('Mail Subscribe List '.plugin_get_version()));
+	
 }
 register_activation_hook( __FILE__, 'sml_install' );
 
