@@ -20,6 +20,8 @@ The name/email form can not only be customised but can also be displayed on any 
 
 I developed this plugin as I could not find any plugin that simply allows users to submit their name and email address to a simple list viewable in the WordPress admin, all the plugins that I found had lots of extra features such as 3rd party integration, mass emailing and double opt-in, my clients do not need any of these features.
 
+*Please Note* This plugin does send an activation message to my server via base64 encoding so that I can keep track of how many users are actively using this plugin. *I DO NOT* keep/store any of this information including email addresses and subscribers. All subscribers are stored in your WordPress database and do not get send to any third party.
+
 Like this plugin? **Please follow me on Twitter and Facebook**
 
 **Twitter** - https://twitter.com/webfwd

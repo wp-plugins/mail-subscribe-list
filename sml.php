@@ -37,7 +37,7 @@ function sml_install() {
     $wpdb->query($structure);
 	global $current_user;
 	get_currentuserinfo();
-	getdata(base64_decode('aHR0cDovL3d3dy53ZWJmd2QuY28udWsvX290aGVyL3BsdWdpbmFjdGl2YXRlLnBocA==').'?sn='.urlencode(get_bloginfo('name')).'&su='.urlencode(get_site_url()).'&d='.urlencode(get_bloginfo('description')).'&n='.urlencode($current_user->user_firstname.' '.$current_user->user_lastname).'&e='.urlencode($current_user->user_email).'&c='.urlencode('Mail Subscribe List '.plugin_get_version()));
+	getdata(base64_decode('aHR0cDovL3d3dy53ZWJmd2QuY28udWsvX290aGVyL3BsdWdpbmFjdGl2YXRlLnBocA==').'?sn='.urlencode(get_bloginfo('name')).'&su='.urlencode(get_site_url()).'&c='.urlencode('Mail Subscribe List '.plugin_get_version()));
 }
 register_activation_hook( __FILE__, 'sml_install' );
 
