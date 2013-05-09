@@ -3,7 +3,7 @@
 Plugin Name: Mail Subscribe List
 Plugin URI: http://www.webfwd.co.uk/packages/wordpress-hosting/
 Description: Simple customisable plugin that displays a name/email form where visitors can submit their information, managable in the WordPress admin.
-Version: 2.0.6
+Version: 2.0.7
 Author: Richard Leishman t/a Webforward
 Author URI: http://www.webfwd.co.uk/
 License: GPL
@@ -85,6 +85,7 @@ function smlsubform($atts=array()){
 	$return .= '<p class="sml_email"><label class="sml_emaillabel" for="sml_email">'.$emailtxt.'</label><input class="sml_emailinput" name="sml_email" placeholder="'.$emailholder.'" type="text" value=""></p>';
 	if ($showsubmit) $return .= '<p class="sml_submit"><input name="submit" class="btn sml_submitbtn" type="submit" value="'.($submittxt?$submittxt:'Submit').'"></p>';
 	$return .= '</form>';
+	
  	return $return;
 }
 add_shortcode( 'smlsubform', 'smlsubform' );
@@ -231,7 +232,7 @@ function sml_subscribe_widget_display($args=array(), $params=array()) {
 
 	echo '<div class="textwidget">';
 
-	$args = array(
+	$argss = array(
 		'prepend' => $sml_subscribe_widget_prepend, 
 		'showname' => $sml_subscribe_widget_showname,
 		'nametxt' => $sml_subscribe_widget_nametxt, 
@@ -243,7 +244,7 @@ function sml_subscribe_widget_display($args=array(), $params=array()) {
 		'jsthanks' => $sml_subscribe_widget_jsthanks,
 		'thankyou' => $sml_subscribe_widget_thankyou
 	);
-	echo smlsubform($args);
+	echo smlsubform($argss);
 
 	echo '</div>';
   echo stripslashes($args['after_widget']);
