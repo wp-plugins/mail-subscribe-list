@@ -89,6 +89,10 @@ No, this plugin was designed to collect email addresses from visitors. This plug
 
 == Changelog ==
 
+= 2.0.9 =
+
+* Bug fixes.
+
 = 2.0.8 =
 
 * Added extra security to the admin functions.
