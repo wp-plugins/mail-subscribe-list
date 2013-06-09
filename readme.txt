@@ -8,11 +8,11 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Simple customisable plugin that displays a name/email form where visitors can submit their information, managable in the WordPress admin.
+Simple customisable plugin that displays a name/email form where visitors can submit their information, manageable in the WordPress admin.
 
 == Description ==
 
-This is a **simple plugin** that allows visitors to enter their name and email address on your website, the visitos details are then added to the subscribers list which is available to view and modify in the WordPress admin area. 
+This is a **simple plugin** that allows visitors to enter their name and email address on your website, the visitors details are then added to the subscribers list which is available to view and modify in the WordPress admin area. 
 
 This plugin can be used not only for Mailing List subscriptions but can be used generally for collecting email address and/or peoples names that are visiting your website.
 
@@ -88,6 +88,10 @@ echo smlsubform($args);</code>
 No, this plugin was designed to collect email addresses from visitors. This plugin does not send emails at all.
 
 == Changelog ==
+
+= 2.1
+
+* Critical fix due to vulnerability found and fixed by Falcoz Kevin (aka 0pc0deFR). Thank you.
 
 = 2.0.9 =
 

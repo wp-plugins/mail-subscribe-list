@@ -89,8 +89,8 @@
 	
 										echo '<tr>
 													<th class="check-column" style="padding:5px 0 2px 0"><input type="checkbox" name="rem[]" value="'.$row->id.'"></th>
-													<td>'.$row->sml_name.'</td>
-													<td>'.$row->sml_email.'</td>
+													<td>'.esc_js(esc_html($row->sml_name)).'</td>
+  													<td>'.esc_js(esc_html($row->sml_email)).'</td>
 											  </tr>';
 											  
 											  
