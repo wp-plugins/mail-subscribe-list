@@ -10,7 +10,7 @@
 			<!-- main content -->
 			<div id="post-body-content">
 				
-			<form method="post" action="?page=<?php echo $_GET['page']; ?>">
+			<form method="post" action="?page=<?php echo esc_js(esc_html($_GET['page'])); ?>">
             <input name="sml_remove" value="1" type="hidden" />
             			<?php 
 						if ($_SERVER['REQUEST_METHOD']=="POST" and $_POST['sml_remove']) {
@@ -18,7 +18,7 @@
 							$count = 0;
 							if (is_array($_POST['rem'])) {
 								foreach ($_POST['rem'] as $id) { 
-									$wpdb->query("delete from ".$wpdb->prefix."sml where id = '".$id."' limit 1"); 
+									$wpdb->query("delete from ".$wpdb->prefix."sml where id = '".$wpdb->escape($id)."' limit 1"); 
 									$count++; 
 								}
 								$message = $count." subscribers have been removed successfully.";
@@ -88,7 +88,7 @@
 									foreach($results as $row) {
 	
 										echo '<tr>
-													<th class="check-column" style="padding:5px 0 2px 0"><input type="checkbox" name="rem[]" value="'.$row->id.'"></th>
+													<th class="check-column" style="padding:5px 0 2px 0"><input type="checkbox" name="rem[]" value="'.esc_js(esc_html($row->id)).'"></th>
 													<td>'.esc_js(esc_html($row->sml_name)).'</td>
   													<td>'.esc_js(esc_html($row->sml_email)).'</td>
 											  </tr>';
@@ -118,7 +118,7 @@
                 
                 <p>This feature allows you to import your own csv (comma seperated values) file into &quot;Mail Subscribe List&quot;.</p>
 
-                <form id="import-csv" method="post" enctype="multipart/form-data" action="?page=<?=$_GET['page'];?>">
+                <form id="import-csv" method="post" enctype="multipart/form-data" action="?page=<?=esc_js(esc_html($_GET['page']));?>">
                 <input name="sml_import" value="1" type="hidden" />
                 <p><label><input name="file" type="file" value="" /> CSV File</label></p>
                 <p class="description">File must contain no header row, each record on its own line and only two comma seperated collumns in the order of email address followed by name. The name field is optional.</p>

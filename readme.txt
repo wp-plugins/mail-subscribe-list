@@ -69,6 +69,8 @@ echo smlsubform($args);</code>
 
 == Installation ==
 
+**Although we try our hardest to ensure that our plugins are secure and completely bug-free, by using this plugin you acknowledge and accept that we are not, and will not be held responsible for any damages, loss, costs or expenses arising from the use of our plugins.**
+
 1. Upload `mail-subscribe-list` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Either use the widget in your sidebar or place `[smlsubform]` in any of your pages or &lt;?php echo smlsubform(); ?&gt; in your template.
@@ -88,6 +90,10 @@ echo smlsubform($args);</code>
 No, this plugin was designed to collect email addresses from visitors. This plugin does not send emails at all.
 
 == Changelog ==
+
+= 2.1.1
+
+* Added some security suggestions kindly provided by José Fonseca, thank you. 
 
 = 2.1
 
