@@ -69,7 +69,7 @@ echo smlsubform($args);</code>
 
 == Installation ==
 
-**Although we try our hardest to ensure that our plugins are secure and completely bug-free, by using this plugin you acknowledge and accept that we are not, and will not be held responsible for any damages, loss, costs or expenses arising from the use of our plugins.**
+**We try our hardest to ensure that our plugins are secure and completely bug-free, by using this plugin you acknowledge and accept that we are not, and will not be held responsible for any damages, loss, costs or expenses arising from the use of our plugins.**
 
 1. Upload `mail-subscribe-list` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
