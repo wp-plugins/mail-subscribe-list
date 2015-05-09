@@ -1,16 +1,17 @@
 === Mail Subscribe List ===
-Contributors: webfwd, noahkagan
-Donate link: 
+Contributors: webfwd
 Tags: mail, email, newsletter, subscribe, list, mailinglist, mail list, mailing list, campaignmonitor, mailchimp, constant contact, subscriber, subscribers, email marketing, marketing, widget, post, plugin, admin, posts, sidebar, page, pages
 Requires at least: 3.0
-Tested up to: 3.5.2
+Tested up to: 4.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Simple customisable plugin that displays a name/email form where visitors can submit their information, manageable in the WordPress admin.
+Simple customizable plugin that displays a name/email form where visitors can submit their information, manageable in the WordPress admin.
 
 == Description ==
+
+[**To get even more email subscribers, use this plugin too!**](http://bit.ly/1zqOXPs)
 
 This is a **simple plugin** that allows visitors to enter their name and email address on your website, the visitors details are then added to the subscribers list which is available to view and modify in the WordPress admin area. 
 
@@ -20,15 +21,11 @@ The name/email form can not only be customised but can also be displayed on any 
 
 I developed this plugin as I could not find any plugin that simply allows users to submit their name and email address to a simple list viewable in the WordPress admin, all the plugins that I found had lots of extra features such as 3rd party integration, mass emailing and double opt-in, my clients do not need any of these features.
 
-Like this plugin? **Please follow me on Twitter and Facebook**
 
-**Twitter** - https://twitter.com/webfwd
-
-**Facebook** - https://www.facebook.com/pages/Webforward/208823852487018
 
 = Extra Options  =
 
-I have developed some customisable options that allow you to change the way the plugin is displayed.
+I have developed some customizable options that allow you to change the way the plugin is displayed.
 
 Below is an explanation of what each option does:-
 
