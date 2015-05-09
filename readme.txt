@@ -1,5 +1,5 @@
 === Mail Subscribe List ===
-Contributors: webfwd
+Contributors: webfwd, noahkagan
 Donate link: 
 Tags: mail, email, newsletter, subscribe, list, mailinglist, mail list, mailing list, campaignmonitor, mailchimp, constant contact, subscriber, subscribers, email marketing, marketing, widget, post, plugin, admin, posts, sidebar, page, pages
 Requires at least: 3.0
