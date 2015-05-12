@@ -20,6 +20,20 @@ The name/email form can not only be customized but can also be displayed on any 
 
 I developed this plugin as I could not find any plugin that simply allows users to submit their name and email address to a simple list viewable in the WordPress admin, all the plugins that I found had lots of extra features such as 3rd party integration, mass emailing and double opt-in, my clients do not need any of these features.
 
+= Works with every email service provider =
+
+Fortunately you can use this to export your subscribers to ANY email providers. Some of the most popular email providers we recommend:
+
+* MailChimp
+* Aweber
+* Constant Contact
+* Vertical Response
+* iContact
+* MyEmma
+* MadMimi
+* GetResponse
+* Infusionsoft
+* Ontraport
 
 
 = Extra Options  =
